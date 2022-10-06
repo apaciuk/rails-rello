@@ -1,0 +1,11 @@
+shared:
+  mailer_default_from_email: "info@example.com"
+  mailer_devise_from_email: "info@example.com"
+development:
+  base_url: <%= ENV["CYPRESS"] ? "http://localhost:5017" : "http://localhost:3000" %>
+test:
+  base_url: "http://localhost:3000"
+production:
+  base_url: "https://example.com"
+staging:
+  base_url: "https://staging.example.com"
