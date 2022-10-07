@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Rello</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<html class="h-full antialiased">
+  <%= render "shared/head" %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  </head>
+  <body class="font-sans font-normal leading-normal text-gray-800 bg-white flex flex-col min-h-screen ">
 
-  <body>
-    <%= yield %>
+    <header>
+      <%= render "shared/flash_notice" %>
+      <%= render "shared/navbar" %>
+    </header>
+
+    <main class="flex-grow">
+      <%= content_for?(:content) ? yield(:content) : yield %>
+    </main>
   </body>
 </html>

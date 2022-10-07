@@ -1,17 +1,16 @@
 module.exports = {
-  darkMode: 'media',
   content: [
     './app/views/**/*.html.erb',
     './app/helpers/**/*.rb',
-    './app/components/**/*',
-    './app/javascript/**/*.js'
+    './app/javascript/**/*.{js, jsx, vue}'
   ],
+  theme: {
+    extend: {},
+  },
   plugins: [
     require('@tailwindcss/forms'),
-    require('tailwindcss-font-inter')({
-      importFontFace: true,
-      disableUnusedFeatures: true
-    }),
-    require('@tailwindcss/typography')
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/line-clamp'),
   ]
 }

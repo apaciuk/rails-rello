@@ -1,7 +1,5 @@
-// Entry point for the build script in your package.json
-import "@hotwired/turbo-rails";
-import LocalTime from "local-time";
-import "./controllers";
-import "./timezone";
-
-LocalTime.start();
+// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
+import "@hotwired/turbo-rails"
+import "controllers"
+import "trix"
+import "@rails/actiontext"

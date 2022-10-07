@@ -1,134 +1,81 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby File.read("./.ruby-version").strip
+ruby "3.1.2"
 
-### Application
+# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4"
+
+# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+gem "sprockets-rails"
+
+# Use postgresql as the database for Active Record
+gem "pg", "~> 1.1"
+
+# Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 
-### DB
-gem "pg", "~> 1.1"
-gem "pg_search"
-gem "activerecord-postgres_enum"
-gem "redis", "~> 4.0"
-gem "discard"
-gem "hypershield"
-gem "online_migrations"
+# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+gem "importmap-rails"
 
-### Frontend
-gem "active_link_to"
-gem "better_html"
-gem "cssbundling-rails"
-gem "jsbundling-rails"
-gem "sprockets-rails"
-gem "stimulus-rails"
+# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 gem "turbo-rails"
+
+# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
+gem "stimulus-rails"
+
+# Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-### View helpers
-gem "simple_form"
-gem "local_time"
-gem "gretel"
-gem "view_component"
-gem "lookbook"
+# Use Redis adapter to run Action Cable in production
+gem "redis", "~> 4.0"
 
-### Authentication and Authorization
-gem "devise"
-gem "devise-pwned_password"
-gem "omniauth"
-gem "omniauth-rails_csrf_protection"
-gem "omniauth-google-oauth2", "~> 1.1.1"
-gem "rolify"
-gem "pretender"
-gem "pundit"
+# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
+# gem "kredis"
 
-### SEO
-gem "meta-tags"
-gem "sitemap_generator"
-gem "friendly_id"
+# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
+# gem "bcrypt", "~> 3.1.7"
 
-### Analytics
-gem "ahoy_email"
-gem "ahoy_matey"
-gem "blazer"
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
-### Encryption and Security
-gem "authtrail"
-gem "rack-attack"
+# Reduces boot times through caching; required in config/boot.rb
+gem "bootsnap", require: false
 
-### Communications
-gem "mailkick"
-gem "noticed"
-gem "postmark"
-gem "postmark-rails"
+# Use Sass to process CSS
+# gem "sassc-rails"
 
-### I18n
-gem "devise-i18n"
-gem "i18n-tasks"
-gem "rails-i18n"
-
-### Caching
-gem "identity_cache"
-gem "cityhash"
-gem "dalli"
-
-### Geolocation
-gem "geocoder"
-
-### Background Processing
-gem "good_job"
-
-### File management
-gem "active_storage_validations"
-gem "aws-sdk-s3", require: false
+# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
 
-### Monitoring
-gem "appsignal"
-gem "rails_performance"
-gem "pghero"
-
-### Tools
-gem "active_interaction", "~> 4.1"
-gem "bootsnap", require: false
-gem "lefthook"
-gem "rails_semantic_logger"
-gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
-gem "pagy"
-
 group :development, :test do
-  gem "byebug", platforms: %i[mri mingw x64_mingw]
-  gem "standard"
-
-  gem "bullet"
-  gem "capybara"
-  gem "capybara-screenshot"
-  gem "cypress-on-rails", "~> 1.0"
-
-  gem "database_cleaner"
-  gem "database_cleaner-active_record"
-  gem "factory_bot_rails"
-  gem "faker"
-  gem "pundit-matchers", "~> 1.7.0"
-  gem "rails-controller-testing"
-  gem "rspec-rails"
-  gem "shoulda-matchers"
-  gem "simplecov"
+gem "rubocop"
+gem "rspec-rails"
+gem "factory_bot_rails"
+gem "bundler-audit"
+gem "brakeman"
+gem "faker"
+  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+gem "byebug", platforms: %i[ mri mingw x64_mingw ]
 end
 
 group :development do
-  gem "annotate"
-  gem "amazing_print"
-  gem "brakeman", require: false
-  gem "bundler-audit"
-  gem "erb_lint", require: false
-  gem "hotwire-livereload", "~> 1.1"
-  gem "letter_opener_web", "~> 2.0"
-  gem "rails_best_practices"
-  gem "pry-byebug"
-  gem "rails-erd"
-
+  # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  gem "rack-mini-profiler"
+
+  # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
+  # gem "rack-mini-profiler"
+
+  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
+  # gem "spring"
 end
+
+gem "devise", "~> 4.8", ">= 4.8.1"
+gem "friendly_id", "~> 5.4", ">= 5.4.2"
+gem "cssbundling-rails"
+gem "name_of_person"
+gem "sidekiq", "~> 6.5", ">= 6.5.4"
+gem "stripe"
+gem "pundit", "~> 2.1"
+
+gem "lefthook"
