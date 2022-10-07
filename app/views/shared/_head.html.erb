@@ -1,13 +1,10 @@
- <head>
-  <title>
-    <%= content_for?(:title) ? yield(:title) : "Rello" %>
-  </title>
+<title><%= Rails.configuration.application_name %></title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
+<%= csrf_meta_tags %>
+<%= csp_meta_tag %>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <%= stylesheet_link_tag  'application', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag "application", defer: true %>
-  <%#= javascript_include_tag 'https://js.stripe.com/v3/', 'data-turbolinks-track': 'reload' %>
-</head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>

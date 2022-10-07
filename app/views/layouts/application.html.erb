@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html class="h-full antialiased">
-  <%= render "shared/head" %>
+<html class="h-100">
+  <head>
+    <%= render 'shared/head' %>
+  </head>
 
-  <body class="font-sans font-normal leading-normal text-gray-800 bg-white flex flex-col min-h-screen ">
+  <body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0"> 
+      <%= render 'shared/navbar' %>
+      <%= render 'shared/notices' %>
 
-    <header>
-      <%= render "shared/flash_notice" %>
-      <%= render "shared/navbar" %>
-    </header>
-
-    <main class="flex-grow">
-      <%= content_for?(:content) ? yield(:content) : yield %>
+      <div class="container mt-4 mx-auto">
+        <%= yield %>
+      </div>
     </main>
+
+    <%= render 'shared/footer' %>
   </body>
 </html>

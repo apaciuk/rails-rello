@@ -1,14 +1,12 @@
 class User < ApplicationRecord
-has_person_name
-
   # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :Trackable
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :omniauthable
 
-  enum role: { user: 0, member: 1 } 
+  has_one_attached :avatar
+  has_person_name
+  has_noticed_notifications
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :email, presence: true, uniqueness: true
+  has_many :notifications, as: :recipient, dependent: :destroy
+  has_many :services
 end

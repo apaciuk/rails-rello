@@ -1,25 +1,29 @@
-<%= render layout: "auth_layout", locals: { title: "Change your password" }  do %>
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }, data: { turbo: false }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-    <%= f.hidden_field :reset_password_token %>
+<div class="row">
+  <div class="col-lg-4 offset-lg-4">
+    <h2 class="text-center">Change your password</h2>
 
-    <div class="mb-6">
-      <div class="flex">
-        <%= f.label :password, "New password", class: label_class %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= f.hidden_field :reset_password_token %>
+
+      <div class="mb-3">
+        <%= f.password_field :password, autofocus: true, autocomplete: "off", class: 'form-control', placeholder: "Password" %>
         <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <p class="text-muted"><small><%= @minimum_password_length %> characters minimum</small></p>
         <% end %>
       </div>
-      <%= f.password_field :password, autofocus: true, autocomplete: "new-password", class: input_class %>
-    </div>
 
-    <div class="mb-6">
-      <%= f.label :password_confirmation, "Confirm new password", class: label_class %>
-      <%= f.password_field :password_confirmation, autocomplete: "off", class: input_class %>
-    </div>
+      <div class="mb-3">
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', placeholder: "Confirm Password" %>
+      </div>
 
-    <div class="mb-6">
-      <%= f.submit "Change my password", class: button_class(theme: "primary", variant: "expanded") %>
+      <div class="mb-3 d-grid">
+        <%= f.submit "Change my password", class: 'btn btn-primary btn-lg' %>
+      </div>
+    <% end %>
+
+    <div class="text-center">
+      <%= render "devise/shared/links" %>
     </div>
-  <% end %>
-<% end %>
+  </div>
+</div>

@@ -1,30 +1,52 @@
-<nav class="flex flex-wrap items-center justify-between py-3 text-gray-700 bg-white container mx-auto px-4 <%= nav_classes %>" data-controller="nav">
-  <div class="flex items-center mr-6 flex-no-shrink">
-    <%= link_to root_path, class:"link text-xl tracking-tight font-black" do %>
-      <span class="sr-only">Rello</span>
-      <%# Remove this logo and add your own %>
-      <svg fill="none" class="w-9 h-9" height="512" viewBox="0 0 512 512" width="512" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><linearGradient id="a" gradientUnits="userSpaceOnUse" x1="56" x2="463" y1="46" y2="465"><stop offset="0" stop-color="#8038ed"/><stop offset="1" stop-color="#3a0092"/></linearGradient><path d="m0 0h512v512h-512z" fill="#fff"/><rect fill="url(#a)" height="512" rx="110" width="512"/><g stroke="#fff"><circle cx="190" cy="302" r="79.5" stroke-opacity=".9" stroke-width="25"/><circle cx="254" cy="377" r="34" stroke-opacity=".8" stroke-width="10"/><circle cx="282" cy="227" r="106" stroke-width="50"/></g></svg>
-    <% end %>
+<% if current_user != true_user %>
+  <div class="alert alert-warning text-center">
+    You're logged in as <b><%= current_user.name %> (<%= current_user.email %>)</b>
+    <%= link_to stop_impersonating_madmin_impersonates_path, method: :post do %><%= icon("fas", "times") %> Logout <% end %>
   </div>
-  <div class="block lg:hidden">
-    <%# Mobile nav toggle %>
-    <button class="flex items-center p-2 -mr-1 rounded-lg focus:bg-gray-100" data-action="click->nav#toggleMenu touch->nav#toggleMenu">
-      <svg class="stroke-current text-gray-500 w-7 h-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><title>Menu</title><g fill="none"><path d="M4 6h16M4 12h8m-8 6h16" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></g></svg>
+<% end %>
+
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+  <div class="container mx-auto">
+    <%= link_to Rails.configuration.application_name, root_path, class: "navbar-brand" %>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
-  </div>
-  <div class="items-center w-full text-center lg:flex-1 lg:flex lg:text-left pt-2 lg:pt-0 hidden" data-nav-target="menu">
-    <div class="lg:flex-grow">
-      <%= link_to "Basic Link", "#", class: "p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block" %>
-    </div>
-    <div class="items-center block w-full mt-2 text-center lg:flex lg:flex-row lg:flex-1 lg:mt-0 lg:text-left lg:justify-end">
-      <div><%# More links can go here %></div>
-      <% if user_signed_in? %>
-        <%= link_to "Edit account", edit_user_registration_path, class: "p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block" %>
-        <%= button_to "Log out", destroy_user_session_path, method: :delete, class:"p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block" %>
-      <% else %>
-        <%= link_to "Sign in", new_user_session_path, class:"p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block" %>
-        <%= link_to "Sign up", new_user_registration_path, class:"p-3 hover:bg-gray-50 transition ease duration-300 rounded-lg text-center focus:bg-gray-100 lg:inline-block block lg:ml-2" %>
-      <% end %>
+
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav me-auto mt-2 mt-md-0">
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item"><%= link_to "What's New", announcements_path, class: "nav-link #{unread_announcements(current_user)}" %></li>
+        <% if user_signed_in? %>
+
+          <li class="nav-item">
+            <%= link_to notifications_path, class: "nav-link" do %>
+              <span><i class="far fa-bell" aria-hidden="true"></i></span>
+            <% end %>
+          </li>
+
+          <li class="nav-item dropdown">
+            <%= link_to "#", id: "navbar-dropdown", class: "nav-link dropdown-toggle", data: { target: "nav-account-dropdown", bs_toggle: "dropdown" }, aria: { haspopup: true, expanded: false } do %>
+              <%= image_tag avatar_path(current_user, size: 40), height: 20, width: 20, class: "rounded" %>
+            <% end %>
+            <div id="nav-account-dropdown" class="dropdown-menu dropdown-menu-end" aria-labelledby="navbar-dropdown">
+              <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
+              <% if current_user.admin? && respond_to?(:madmin_root_path) %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "Admin Area", madmin_root_path, class: "dropdown-item" %>
+              <% end %>
+              <div class="dropdown-divider"></div>
+              <%= button_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+
+        <% else %>
+          <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></li>
+          <li class="nav-item"><%= link_to "Login", new_user_session_path, class: "nav-link" %></li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </nav>

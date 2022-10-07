@@ -10,19 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_07_065436) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_07_134045) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "action_text_rich_texts", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "body"
-    t.string "record_type", null: false
-    t.bigint "record_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
-  end
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +42,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_065436) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "announcements", force: :cascade do |t|
+    t.datetime "published_at"
+    t.string "announcement_type"
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
     t.integer "sluggable_id", null: false
@@ -61,6 +60,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_065436) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "services", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "provider"
+    t.string "uid"
+    t.string "access_token"
+    t.string "access_token_secret"
+    t.string "refresh_token"
+    t.datetime "expires_at"
+    t.text "auth"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_services_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -76,6 +89,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_065436) do
     t.string "last_sign_in_ip"
     t.string "first_name"
     t.string "last_name"
+    t.datetime "announcements_last_read_at"
     t.boolean "admin", default: false
     t.integer "role", default: 0
     t.datetime "created_at", null: false
@@ -86,4 +100,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_065436) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "services", "users"
 end

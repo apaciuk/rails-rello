@@ -46,10 +46,10 @@ gem "bootsnap", require: false
 # gem "sassc-rails"
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-gem "image_processing", "~> 1.2"
+# gem "image_processing", "~> 1.2"
 
 group :development, :test do
-gem "standardrb"
+gem "rubocop"
 gem "rspec-rails"
 gem "factory_bot_rails"
 gem "bundler-audit"
@@ -70,11 +70,20 @@ group :development do
   # gem "spring"
 end
 
-gem "devise", "~> 4.8", ">= 4.8.1"
-gem "friendly_id", "~> 5.4", ">= 5.4.2"
 gem "cssbundling-rails"
-gem "name_of_person"
-gem "sidekiq", "~> 6.5", ">= 6.5.4"
-gem "stripe"
+gem "devise", "~> 4.8", ">= 4.8.0"
+gem "friendly_id", "~> 5.4"
+gem "jsbundling-rails"
+gem "madmin"
+gem "name_of_person", "~> 1.1"
+gem "noticed", "~> 1.4"
+gem "omniauth-facebook", "~> 8.0"
+gem "omniauth-github", "~> 2.0"
+gem "omniauth-twitter", "~> 1.4"
+gem "pretender", "~> 0.3.4"
 gem "pundit", "~> 2.1"
-gem "lefthook"
+gem "sidekiq", "~> 6.2"
+gem "sitemap_generator", "~> 6.1"
+gem "whenever", require: false
+gem "responders", github: "heartcombo/responders", branch: "main"
+
