@@ -1,10 +1,27 @@
-<footer class="bg-light footer mt-auto py-3">
-  <div class="container d-flex justify-content-between mx-auto text-muted">
-    <span>&copy; <%= Date.today.year %> Your Company</span>
-    <ul class="d-inline float-end list-inline mb-0">
-      <li class="list-inline-item mr-3"><%= link_to "Terms", terms_path %></li>
-      <li class="list-inline-item mr-3"><%= link_to "Privacy", privacy_path %></li>
-    </ul>
-  </div>
-</footer>
+
+
+<footer class="text-center text-light mt-4" style="background-color: #000000; background-image: linear-gradient(147deg, #000000 0%, #2c3e50 74%);">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: CTA -->
+      <section class="">
+        <p class="d-flex justify-content-center align-items-center text-light">
+          <span class="me-3">Register On Rello for free!</span>
+         <%= link_to "Sign Up!", new_user_registration_path, class: "btn btn-outline-info btn-rounded" %>
+         
+        </p>
+      </section>
+      <!-- Section: CTA -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center text-light p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+      © <%= Date.today.year %> Copyright:
+      <a class="text-light" href="https://xhostcom.com/">Paul Anthony McGowan</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+
 
