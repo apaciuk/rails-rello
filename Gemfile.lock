@@ -203,7 +203,7 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.11.1)
-    rubocop (1.36.0)
+    rubocop (1.35.1)
       json (~> 2.3)
       parallel (~> 1.10)
       parser (>= 3.1.2.1)
@@ -215,6 +215,9 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.21.0)
       parser (>= 3.1.1.0)
+    rubocop-performance (1.14.3)
+      rubocop (>= 1.7.0, < 2.0)
+      rubocop-ast (>= 0.4.0)
     ruby-progressbar (1.11.0)
     ruby-vips (2.1.4)
       ffi (~> 1.12)
@@ -229,6 +232,11 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    standard (1.16.1)
+      rubocop (= 1.35.1)
+      rubocop-performance (= 1.14.3)
+    standardrb (1.0.1)
+      standard
     stimulus-rails (1.1.0)
       railties (>= 6.0.0)
     stripe (7.1.0)
@@ -277,9 +285,9 @@ DEPENDENCIES
   rails (~> 7.0.4)
   redis (~> 4.0)
   rspec-rails
-  rubocop
   sidekiq (~> 6.5, >= 6.5.4)
   sprockets-rails
+  standardrb
   stimulus-rails
   stripe
   turbo-rails
