@@ -70,6 +70,7 @@ group :development do
   # gem "spring"
 end
 
+gem 'dotenv-rails'
 gem "cssbundling-rails"
 gem "devise", "~> 4.8", ">= 4.8.0"
 gem "friendly_id", "~> 5.4"

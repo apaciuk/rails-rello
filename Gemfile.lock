@@ -103,6 +103,10 @@ GEM
     diff-lcs (1.5.0)
     domain_name (0.5.20190701)
       unf (>= 0.0.5, < 1.0.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.11.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
@@ -345,6 +349,7 @@ DEPENDENCIES
   byebug
   cssbundling-rails
   devise (~> 4.8, >= 4.8.0)
+  dotenv-rails
   factory_bot_rails
   faker
   friendly_id (~> 5.4)
