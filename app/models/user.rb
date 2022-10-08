@@ -9,8 +9,8 @@ class User < ApplicationRecord
 
   has_many :notifications, as: :recipient, dependent: :destroy
   has_many :services 
-
   has_many :boards, dependent: :destroy
+  # has_many :lists, through: :boards
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { maximum: 255 }, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true

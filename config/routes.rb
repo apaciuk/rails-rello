@@ -14,7 +14,7 @@ authenticate :user, lambda { |u| u.admin? } do
     end
   end
 end
-
+  resources :boards, only: [:new]
   resources :notifications, only: [:index]
   resources :announcements, only: [:index]
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
