@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_07_134248) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_07_210831) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,6 +49,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_134248) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "boards", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_boards_on_user_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -112,5 +120,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_07_134248) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "boards", "users"
   add_foreign_key "services", "users"
 end

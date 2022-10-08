@@ -51,6 +51,7 @@ gem "bootsnap", require: false
 group :development, :test do
 gem "rubocop"
 gem "rspec-rails"
+gem 'shoulda-matchers', '~> 5.2'
 gem "factory_bot_rails"
 gem "bundler-audit"
 gem "brakeman"
