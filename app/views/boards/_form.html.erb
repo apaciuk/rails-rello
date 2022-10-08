@@ -1,0 +1,39 @@
+<%= form_with(model: board) do |form| %>
+  <% if board.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(board.errors.count, "error") %> prohibited this board from being saved:</h2>
+
+      <ul>
+      <% board.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :title, class: 'form-label' %>
+      <%= form.text_field :title, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <%= form.label :user_id, class: 'form-label' %>
+      <%= form.text_field :user_id, class: 'form-control' %>
+    </div>
+
+  <div class="mb-3">
+    <% if board.persisted? %>
+      <div class="float-end">
+        <%= link_to 'Destroy', board, method: :delete, class: "text-danger", data: { confirm: 'Are you sure?' } %>
+      </div>
+    <% end %>
+
+    <%= form.submit class: 'btn btn-primary' %>
+
+    <% if board.persisted? %>
+      <%= link_to "Cancel", board, class: "btn btn-link" %>
+    <% else %>
+      <%= link_to "Cancel", boards_path, class: "btn btn-link" %>
+    <% end %>
+  </div>
+<% end %>

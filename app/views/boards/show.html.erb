@@ -1,0 +1,16 @@
+<div class="page-header">
+  <%= link_to boards_path, class: 'btn btn-default' do %>
+    All Boards
+  <% end %>
+  <%= link_to edit_board_path(@board), class: 'btn btn-primary' do %>
+    Edit
+  <% end %>
+  <h1>Show board</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Title:</dt>
+  <dd><%= @board.title %></dd>
+  <dt>User:</dt>
+  <dd><%= @board.user %></dd>
+</dl>
