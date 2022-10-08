@@ -18,3 +18,27 @@ body>main>nav>div>a>img {
     height: 44px;
     width: 44px;
 }
+.logo-sm img {
+    height: 32px;
+    width: 32px;
+}
+
+form { 
+    border-radius: 5px;
+    margin-bottom: 15px;
+    padding-top: 38px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    background: radial-gradient(circle at 10% 20%, rgba(216, 241, 230, 0.46) 0.1%, rgba(233, 226, 226, 0.28) 90.1%);
+}
+
+.btn-custom {
+color: green;
+}
+
+.btn-custom:hover,
+.btn-custom:focus,
+.btn-custom:active {
+color: #fff;
+}

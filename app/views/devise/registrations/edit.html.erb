@@ -1,7 +1,7 @@
 <div class="row text-center">
   <%= link_to image_tag('logo.png'), root_path, class: 'logo' %>
   <div class="col-lg-4 offset-lg-4 mt-3">
-    <h1 class="text-center">Account</h1>
+    <h2 class="text-center"><u>Dashboard</u></h2>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>

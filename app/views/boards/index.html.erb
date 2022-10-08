@@ -18,12 +18,11 @@
     <thead>
       <tr>
     
+        <th>Name</th>
+    
 
-            <th>Title</th>
             <th>User</th>
             
-          <th></th>
-        
       </tr>
     </thead>
 
@@ -31,12 +30,11 @@
       <% @boards.each do |board| %>
         <%= content_tag :tr, id: dom_id(board), class: dom_class(board) do %>
           
+            <td><%= link_to board.name, board %></td>
+          
 
-                      <td><%= board.title %></td>
                       <td><%= board.user %></td>
           
-          
-            <td><%= link_to 'Show', board %></td>
           
         <% end %>
       <% end %>
