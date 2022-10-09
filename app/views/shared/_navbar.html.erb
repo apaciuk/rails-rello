@@ -9,20 +9,16 @@
   <div class="container mx-auto">
   <%= link_to image_tag('logo.png'), root_path, class: 'logo' %>
   <h1 class="title"><span>Rello</span></h1>
- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarMain">
       <ul class="navbar-nav me-auto mt-2 mt-md-0">
-        <% if user_signed_in? %>
-        <li class="nav-item"><%= link_to "Dashboard", edit_user_registration_path, class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-outline-success btn-rounded btn-custom nav-link" %></li>
-        <% end %>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item"><%= link_to "What's New", announcements_path, class: "nav-link #{unread_announcements(current_user)}" %></li>
         <% if user_signed_in? %>
-          <li class="nav-item"><%= link_to "New Board", new_board_path, class: "btn btn-success text-white nav-link" %></li>
+         <li class="nav-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "btn btn-outline-success btn-rounded btn-custom nav-link" %></li>
         <li class="nav-item mx-3"><%= link_to image_tag avatar_path(current_user, size: 40), height: 40, width: 40, class: "rounded" %></li>
           <% else %>
           <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></li>

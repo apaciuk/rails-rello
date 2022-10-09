@@ -3,11 +3,12 @@
 
 <div class="row">
   <div class="col-sm-6">
-    <h1>Boards</h1>
+ 
+<h2>My Boards <span class="badge bg-warning"><%= link_to image_tag('logo-sm.png'), root_path, class: 'logo-sm' %></span></h2>
   </div>
 
   <div class="col-sm-6 text-end">
-  <%= link_to new_board_path, class: 'btn btn-primary' do %>
+  <%= link_to new_board_path, class: 'btn btn-success mb-3' do %>
     Add New Board
   <% end %>
   </div>
