@@ -2,23 +2,24 @@ module Users
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     before_action :set_service, except: [:failure]
     before_action :set_user, except: [:failure]
+    before action :set_boards, only: %i[index show]
 
-    attr_reader :service, :user
+    attr_reader :service, :user, :boards
 
     def failure
-      redirect_to root_path, alert: "Something went wrong"
+      redirect_to root_path, alert: 'Something went badly wrong'
     end
 
     def facebook
-      handle_auth "Facebook"
+      handle_auth 'Facebook'
     end
 
     def twitter
-      handle_auth "Twitter"
+      handle_auth 'Twitter'
     end
 
     def github
-      handle_auth "Github"
+      handle_auth 'Github'
     end
 
     private
@@ -75,7 +76,7 @@ module Users
     def create_user
       User.create(
         email: auth.info.email,
-        #name: auth.info.name,
+        name: auth.info.name,
         password: Devise.friendly_token[0,20]
       )
     end

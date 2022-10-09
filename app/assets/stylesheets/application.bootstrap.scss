@@ -41,4 +41,14 @@ color: green;
 .btn-custom:focus,
 .btn-custom:active {
 color: #fff;
+} 
+.rounded {
+    border-radius: 50%!important;
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .rounded 
+    {
+        padding-top: 15px!important;
+    }
 }

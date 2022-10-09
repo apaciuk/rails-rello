@@ -21,11 +21,11 @@ class BoardsController < ApplicationController
 
   # POST /boards or /boards.json
   def create
-    @board = Board.new(board_params)
+    @board = Board.new(board_params.merge(user: current_user))
 
     respond_to do |format|
       if @board.save
-        format.html { redirect_to board_url(@board), notice: "Board was successfully created." }
+        format.html { redirect_to board_url(@board), notice: 'Board was successfully created.' }
         format.json { render :show, status: :created, location: @board }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class BoardsController < ApplicationController
   def update
     respond_to do |format|
       if @board.update(board_params)
-        format.html { redirect_to board_url(@board), notice: "Board was successfully updated." }
+        format.html { redirect_to board_url(@board), notice: 'Board was successfully updated.' }
         format.json { render :show, status: :ok, location: @board }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class BoardsController < ApplicationController
     @board.destroy
 
     respond_to do |format|
-      format.html { redirect_to boards_url, notice: "Board was successfully destroyed." }
+      format.html { redirect_to boards_url, notice: 'Board was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +65,6 @@ class BoardsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def board_params
-      params.require(:board).permit(:name, :user_id)
+      params.require(:board).permit(:name)
     end
 end
