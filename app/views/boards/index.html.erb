@@ -14,31 +14,14 @@
   </div>
 </div>
 
-<div class="table-responsive">
-  <table class="table table-striped table-bordered table-hover">
-    <thead>
-      <tr>
-    
-        <th>Name</th>
-    
-
-            <th>User</th>
-            
-      </tr>
-    </thead>
-
-    <tbody>
+<%= render @boards %>
       <% @boards.each do |board| %>
-        <%= content_tag :tr, id: dom_id(board), class: dom_class(board) do %>
+        <%= content_tag :li, id: dom_id(board), class: dom_class(board) do %>
+        <ul class="list-group">
+        <li> <%= link_to board.name, board %></li>
+        </ul>
           
-            <td><%= link_to board.name, board %></td>
-          
-
-                      <td><%= board.user %></td>
           
           
         <% end %>
       <% end %>
-    </tbody>
-  </table>
-</div>

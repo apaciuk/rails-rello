@@ -1,17 +1,14 @@
 
   
  
-<h2>Show Board <span class="badge bg-warning"><%= link_to image_tag('logo-sm.png'), root_path, class: 'logo-sm' %></span></h2>
-<%= link_to boards_path, class: 'btn btn-default' do %>
+<h2><%= @board.name %> <span class="badge bg-warning"><%= link_to image_tag('logo-sm.png'), root_path, class: 'logo-sm' %></span></h2>
+<%= link_to boards_path, class: 'btn btn-outline-success' do %>
     All Boards
   <% end %>
   <%= link_to edit_board_path(@board), class: 'btn btn-info' do %>
     Edit
   <% end %>
 
-<dl class="dl-horizontal">
-  <dt>Name:</dt>
-  <dd><%= @board.name %></dd>
-  <dt>User:</dt>
-  <dd><%= @board.user %></dd>
-</dl>
+
+
+
