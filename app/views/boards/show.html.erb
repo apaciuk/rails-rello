@@ -1,7 +1,7 @@
 
   
  
-<h2><%= @board.name %> <span class="badge bg-warning"><%= link_to image_tag('logo-sm.png'), root_path, class: 'logo-sm' %></span></h2>
+<h2><%= @board.name.capitalize %> <span class="badge bg-warning"><%= link_to image_tag('logo-sm.png'), root_path, class: 'logo-sm' %></span></h2>
 <div style="background: radial-gradient(circle at 10% 20%, rgba(216, 241, 230, 0.46) 0.1%, rgba(233, 226, 226, 0.28) 90.1%);">
 <%= link_to boards_path, class: 'btn btn-outline-success' do %>
     All Boards

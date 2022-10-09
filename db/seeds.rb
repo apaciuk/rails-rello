@@ -15,7 +15,7 @@ end
 # generate 10 boards
 (1..10).each do |id|
     Board.create!(
-       name: Faker::Lorem.word,
+       name: Faker::Adjective.unique.positive,
        user_id: User.all.sample.id
     )
 end
