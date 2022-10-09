@@ -33,22 +33,4 @@ form {
     background: radial-gradient(circle at 10% 20%, rgba(216, 241, 230, 0.46) 0.1%, rgba(233, 226, 226, 0.28) 90.1%);
 }
 
-.btn-custom {
-color: green;
-}
 
-.btn-custom:hover,
-.btn-custom:focus,
-.btn-custom:active {
-color: #fff;
-} 
-.rounded {
-    border-radius: 50%!important;
-}
-
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-    .rounded 
-    {
-        padding-top: 15px!important;
-    }
-}

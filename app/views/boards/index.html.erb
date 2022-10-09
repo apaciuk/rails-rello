@@ -13,15 +13,5 @@
   <% end %>
   </div>
 </div>
-
-<%= render @boards %>
-      <% @boards.each do |board| %>
-        <%= content_tag :li, id: dom_id(board), class: dom_class(board) do %>
-        <ul class="list-group">
-        <li> <%= link_to board.name, board %></li>
-        </ul>
-          
-          
-          
-        <% end %>
-      <% end %>
+       <%= render @boards %>
+      
