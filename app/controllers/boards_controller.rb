@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class BoardsController < ApplicationController
-  before_action :set_board, only: %i[ show edit update destroy ]
+  before_action :set_board, only: %i[show edit update destroy]
 
   # GET /boards or /boards.json
   def index
@@ -8,6 +10,10 @@ class BoardsController < ApplicationController
 
   # GET /boards/1 or /boards/1.json
   def show
+    @board = Board.find(params[:id])
+    # @lists = @board.lists
+  # @list = List.new
+   #@pagy, @cards = pagy(@board.cards)
   end
 
   # GET /boards/new
@@ -16,8 +22,7 @@ class BoardsController < ApplicationController
   end
 
   # GET /boards/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /boards or /boards.json
   def create
@@ -58,13 +63,14 @@ class BoardsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_board
-      @board = Board.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def board_params
-      params.require(:board).permit(:name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_board
+    @board = Board.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def board_params
+    params.require(:board).permit(:name)
+  end
 end

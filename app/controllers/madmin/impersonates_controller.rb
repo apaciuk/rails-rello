@@ -1,14 +1,18 @@
-class Madmin::ImpersonatesController < Madmin::ApplicationController
-  impersonates :user
+# frozen_string_literal: true
 
-  def impersonate
-    user = User.find(params[:id])
-    impersonate_user(user)
-    redirect_to root_path
-  end
+module Madmin
+  class ImpersonatesController < Madmin::ApplicationController
+    impersonates :user
 
-  def stop_impersonating
-    stop_impersonating_user
-    redirect_to root_path
+    def impersonate
+      user = User.find(params[:id])
+      impersonate_user(user)
+      redirect_to root_path
+    end
+
+    def stop_impersonating
+      stop_impersonating_user
+      redirect_to root_path
+    end
   end
 end

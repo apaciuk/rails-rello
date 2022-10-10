@@ -1,28 +1,42 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
-@import "jumpstart/announcements";
 
+.announcement {
+    strong {
+        color: $gray-700;
+        font-weight: 900;
+    }
+}
+
+.unread-announcements:before {
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    -moz-background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    background: $red;
+    content: '';
+    display: inline-block;
+    height: 8px;
+    width: 8px;
+    margin-right: 6px;
+}
 .title {
-  font-size: 2rem;
-  font-weight: 700;
-  text-decoration: none;
-  margin-top: 6px;
-  margin-left: 15px;
-  margin-right: 15px;
+font-size: 2rem;
+font-weight: 700;
+text-decoration: none;
+margin-top: 6px;
+margin-left: 15px;
+margin-right: 15px;
 }
 .logo {
     margin-right: 5px;
-}
-
-body>main>nav>div>a>img {
-    height: 44px;
-    width: 44px;
 }
 .logo-sm img {
     height: 32px;
     width: 32px;
 }
-
 form { 
     border-radius: 5px;
     margin-bottom: 15px;

@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class Announcement < ApplicationRecord
-  TYPES = %w{ new fix update }
+  TYPES = %w[new fix update].freeze
 
   after_initialize :set_defaults
 

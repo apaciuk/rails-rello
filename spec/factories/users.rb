@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :user do
     name { Faker::Name.name }
@@ -5,6 +7,6 @@ FactoryBot.define do
     password { Faker::Internet.password }
     password_confirmation { password }
     admin { false }
-    role { "member" }
+    role { 'member' }
   end
 end
