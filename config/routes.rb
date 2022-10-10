@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
-  resources :boards, only: %i[new create]
+  resources :boards, only: %i[new create edit update]
   resources :announcements, only: [:index]
   root to: 'home#index'
 end
