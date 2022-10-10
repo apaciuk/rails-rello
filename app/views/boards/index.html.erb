@@ -1,5 +1,4 @@
-
-<div class="row">
+<div class="row mb-3">
   <div class="col-sm-6">
  
 <h2>My Boards <span class="badge bg-warning"><%= link_to image_tag('logo-sm.png'), root_path, class: 'logo-sm' %></span></h2>
@@ -12,11 +11,15 @@
   </div>
 </div>
 
-<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+ <div class="row">
+    <% @boards.each do |board| %>
+      <div class="col-sm-4 col-md-4">
+     <%= render board %>
+      </div>
+    <% end %>
+  </div>
 
-<%= render @boards %>
 
-</div>
 
     
 
