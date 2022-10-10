@@ -22,7 +22,10 @@ class BoardsController < ApplicationController
   end
 
   # GET /boards/1/edit
-  def edit; end
+  def edit
+    @board = Board.find(params[:id])
+    authorize @board
+  end
 
   # POST /boards or /boards.json
   def create

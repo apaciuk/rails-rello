@@ -4,8 +4,8 @@
   <h5><%= board.name.capitalize %> <span class="badge bg-info"><%= link_to image_tag('logo-sm.png'), root_path, class: 'logo-sm' %></span></h5>
   </div>
   <div class="card-body" >
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <h6 class="card-title"><%= board.category.capitalize %></h6>
+    <p class="card-text"><%= board.description.capitalize %>.</p>
     <%= link_to board_path(board), class: 'btn btn-outline-success' do %>
       View Board
     <% end %>

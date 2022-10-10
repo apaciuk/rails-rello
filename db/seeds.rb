@@ -17,6 +17,8 @@ end
 (1..10).each do |_id|
   Board.create!(
     name: Faker::Adjective.unique.positive,
+    category: Faker::Book.genre,
+    description: Faker::Lorem.paragraph,
     user_id: User.all.sample.id
   )
 end
