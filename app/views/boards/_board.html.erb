@@ -7,7 +7,7 @@
   <div class="card-body" >
     <p class="card-text"><%= board.description.capitalize %>.</p>
 
-    <div class="board" data-id="<%= board.id %>">
+  <div class="board" data-id="<%= board.id %>">
   <% board.board_columns.each do |column| %>
     <ul class="board-col" data-col-id=<%= column.id %> >
       <li class="board-col-name"><%= column.name %></li>

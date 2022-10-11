@@ -28,5 +28,12 @@ document.addEventListener("turbo:load", () => {
   var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
     return new bootstrap.Popover(popoverTriggerEl)
   })
-})
+}) 
+
+document.addEventListener('turbo:load', () => {
+  const boardUls = document.querySelectorAll(".board .board-col");
+  if (boardUls) {
+    initBoardSortable(boardUls);
+  }
+});
 
