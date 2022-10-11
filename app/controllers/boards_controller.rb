@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class BoardsController < ApplicationController
+  before_action :authenticate_user!, except: %i[index show]
   before_action :set_board, only: %i[show edit update destroy]
 
   # GET /boards or /boards.json
