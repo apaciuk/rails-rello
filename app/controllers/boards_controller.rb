@@ -24,7 +24,6 @@ class BoardsController < ApplicationController
   # GET /boards/1/edit
   def edit
     @board = Board.find(params[:id])
-    authorize @board
   end
 
   # POST /boards or /boards.json
@@ -74,6 +73,6 @@ class BoardsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def board_params
-    params.require(:board).permit(:name)
+    params.require(:board).permit(:name, :category, :description)
   end
 end
