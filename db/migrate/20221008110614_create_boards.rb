@@ -6,6 +6,7 @@ class CreateBoards < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :category
       t.string :description
+      t.jsonb :cards
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

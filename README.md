@@ -1,14 +1,13 @@
 # rails-rello
 
-* Ruby version - 3.1.2
+- Ruby version - 3.1.2
 
-* System dependencies - bundle, yarn
+- System dependencies - bundle, yarn
 
-* Database creation - db:create db:migrate & db:seed
+- Database creation - db:create db:migrate & db:seed
 
-Pick a user from db and log in with email & "password" - their test boards show.
+Pick user from db (or find in console) and log in with email & literally "password" - their test boards, board_columns, cards etc show. (Use DB Gate - [https://dbgate.org/download/])
 
-* How to run the test suite - rspec
+- How to run the test suite - rspec
 
-* Services (job queues, cache servers, search engines, etc.) - redis - rails dev:cache
-
+- Services (job queues, cache servers, search engines, etc.) - redis - rails dev:cache
