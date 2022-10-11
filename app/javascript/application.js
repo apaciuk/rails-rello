@@ -14,7 +14,7 @@ import './channels/**/*_channel.js'
 import "./controllers"
 
 import * as bootstrap from "bootstrap"
-import 'sortablejs/modular/sortable.complete.esm.js'
+import './plugins/initSortable'
 
 // Bootstrap 5
 
@@ -36,4 +36,6 @@ document.addEventListener('turbo:load', () => {
     initBoardSortable(boardUls);
   }
 });
+
+
 
