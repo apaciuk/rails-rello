@@ -5,11 +5,11 @@
   <div class="card-body" >
     <h6 class="card-title"><%= board.category.capitalize %></h6>
     <p class="card-text"><%= board.description.capitalize %>.</p>
-    <%= link_to board_path(board), class: 'btn btn-outline-success' do %>
-      View Board
-    <% end %>
-    <%= link_to edit_board_path(board), class: 'btn btn-outline-primary' do %>
-      Edit Board
+    <%= link_to edit_board_path(board), class: 'btn btn-outline-success btn-sm' do %>
+      Update
+    <% end %> 
+    <%= link_to board_path(board), class: 'btn btn-outline-danger btn-sm' do %>
+      Delete
     <% end %>
   </div>
   <div class="card-footer text-muted" style="background: radial-gradient(circle at 10% 20%, rgba(216, 241, 230, 0.46) 0.1%, rgba(233, 226, 226, 0.28) 90.1%);">
