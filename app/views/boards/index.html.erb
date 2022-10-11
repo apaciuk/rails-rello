@@ -14,7 +14,7 @@
 
  <div class="row mb-3 mt-3">
     <% @boards.each do |board| %>
-      <div class="col-sm-4 col-md-4">
+      <div class="col-sm-12 col-md-12 col-lg-12">
      <%= render board %>
         <%= link_to board_path(board), class: 'btn btn-outline-primary btn-sm mt-3' do %>
       View Board

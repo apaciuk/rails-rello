@@ -13,8 +13,8 @@ class BoardsController < ApplicationController
   def show
     @board = Board.find(params[:id])
     # @lists = @board.lists
-  # @list = List.new
-   #@pagy, @cards = pagy(@board.cards)
+    # @list = List.new
+    #@pagy, @cards = pagy(@board.cards)
   end
 
   # GET /boards/new
@@ -74,6 +74,6 @@ class BoardsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def board_params
-    params.require(:board).permit(:name, :category, :description)
+    params.require(:board).permit(:name, :description)
   end
 end

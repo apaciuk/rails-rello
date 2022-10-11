@@ -14,6 +14,7 @@ import './channels/**/*_channel.js'
 import "./controllers"
 
 import * as bootstrap from "bootstrap"
+import 'sortablejs/modular/sortable.complete.esm.js'
 
 // Bootstrap 5
 

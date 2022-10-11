@@ -49,6 +49,39 @@ form {
     background: radial-gradient(circle at 10% 20%, rgba(216, 241, 230, 0.46) 0.1%, rgba(233, 226, 226, 0.28) 90.1%);
 } 
 
+// Vanilla CSS for item cards
+
+.board {
+    display: flex;
+    margin: 14px;
+}
+
+.board-col {
+    list-style: none;
+    width: 33%;
+    padding: 0;
+    margin-left: 8px;
+}
+
+.board-col-name {
+    background-color: lightblue;
+    text-align: center;
+    margin-bottom: 16px;
+    padding: 16px;
+}
+
+.board-col-item {
+    border: 1px solid #f8f8f8;
+    background-color: #f8f8f8;
+    margin-bottom: 4px;
+    padding: 16px;
+    cursor: grab;
+}
+
+.board-col-item:active {
+    cursor: grabbing;
+}
+
 
 
 

@@ -17,7 +17,6 @@ User.destroy_all
 # generate 10 boards
 board = Board.create!(
   name: Faker::Adjective.unique.positive,
-  category: Faker::Book.genre,
   description: "This is a #{Faker::Book.genre} board",
   user_id: user.id
   )
@@ -38,6 +37,7 @@ todo = BoardColumn.create(
 
 Card.create(content: 'Design the car', position: 0, board_column: todo)
 Card.create(content: 'Test the design', position: 1, board_column: todo)
+Card.create(content: 'Put in to production', position: 1, board_column: todo)
 
 completed = BoardColumn.create(
   name: 'Completed',
@@ -46,6 +46,7 @@ completed = BoardColumn.create(
 
 Card.create(content: 'Build the engineer team', position: 0, board_column: completed) 
 Card.create(content: 'Get funding', position: 1, board_column: completed)
+Card.create(content: 'Set the release date', position: 1, board_column: completed)
 
 
 # Not a perfect representation of the real time data.
