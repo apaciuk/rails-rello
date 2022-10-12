@@ -56,21 +56,21 @@ form {
     margin: 14px;
 }
 
-.board-col {
+.list-group {
     list-style: none;
     width: 33%;
     padding: 0;
     margin-left: 8px;
 }
 
-.board-col-name {
+.list-group-name {
     background-color: lightblue;
     text-align: center;
     margin-bottom: 16px;
     padding: 16px;
 }
 
-.board-col-item {
+.list-group-item {
     border: 1px solid #f8f8f8;
     background-color: #f8f8f8;
     margin-bottom: 4px;
@@ -78,7 +78,7 @@ form {
     cursor: grab;
 }
 
-.board-col-item:active {
+.list-group-item:active {
     cursor: grabbing;
 }
 
