@@ -65,6 +65,21 @@ class BoardsController < ApplicationController
     end
   end
 
+  def sort
+    # Get the new col sort
+    sorted_cols = JSON.parse(board_params['boardIds'])['columns']
+    sorted_cols.each do |col|
+      # Look at each of its cards
+      col['itemIds'].each do |card_id|
+        # Find the card in the DB and update its col and position
+        Card.find(card_id).update(
+          board_column: BoardColumn.find(col['id']),
+          position: col['itemIds'].find_index(card_id)
+        )
+      end
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -74,6 +89,7 @@ class BoardsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def board_params
-    params.require(:board).permit(:name, :description)
+    params.require(:board).permit(:name, :description, :boardIds)
   end
+  
 end

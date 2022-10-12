@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
   resources :boards, only: %i[new create edit update]
+  patch '/boards/:id/sort', to: 'boards#sort', as: 'board_sort'
   resources :announcements, only: [:index]
   root to: 'home#index'
 end
