@@ -5,22 +5,18 @@ Board.destroy_all
 User.destroy_all
 
 # Create sample data
-2.times do
-  user = User.create!(
+  User.create!(
     name: Faker::Name.name,
     email: Faker::Internet.email,
     password: 'password',
     password_confirmation: 'password'
   )
   # Create a board
-  2.times do
     board = Board.create!(
       name: Faker::Adjective.unique.positive,
       description: "This is a #{Faker::Book.genre} board",
       user_id: 1
     )
-  end
-end
 
   # Create the board columns
       backlog = BoardColumn.create!(

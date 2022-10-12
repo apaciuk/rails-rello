@@ -14,7 +14,6 @@ import './channels/**/*_channel.js'
 import "./controllers"
 
 import * as bootstrap from "bootstrap"
-import './plugins/initSortable'
 
 // Bootstrap 5
 
@@ -30,10 +29,31 @@ document.addEventListener("turbo:load", () => {
   })
 }) 
 
+// Sortable JS
+
+import Sortable from 'sortablejs';
+
+const initBoardSortable = (ulElements) => {
+  ulElements.forEach((ul) => {
+    new Sortable(ul, {
+        dataIdAttr: 'data-id',
+        group: 'board', // set both lists to same group
+        draggable: ".item",
+        animation: 300
+    });
+  });
+};
+
+export { initBoardSortable };
+
 document.addEventListener('turbo:load', () => {
-  const boardUls = document.querySelectorAll(".board .board-col");
+  const boardUls = document.querySelectorAll(".board .board-col .board-col-name board-col-item");
   if (boardUls) {
     initBoardSortable(boardUls);
+    console.log("Sortable loaded");
+  }
+  else {
+    console.log("Sortable not loaded");
   }
 });
 
